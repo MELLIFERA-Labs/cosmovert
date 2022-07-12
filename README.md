@@ -10,4 +10,5 @@ https://t.me/cosmovertbot
 Donations:
 
 `cosmos -> cosmos1rxgykl9vgkjwaq5q99lu66vdt30c4py79n38fv`
-Need more? convert it https://t.me/cosmovertbot :) 
+
+Need more? convert it https://t.me/cosmovertbot : ) 
