@@ -5,7 +5,7 @@ https://t.me/cosmovertbot
 
 ### Run
 ```
- docker run  -d --restart unless-stopped --net=host  -v ~/cosmovert/config.js:/config.js ruslanglaznyov/cosmovert cosmovert
+docker run  -d --restart unless-stopped --net=host  -v ~/cosmovert/config.js:/config.js --name cosmovert ruslanglaznyov/cosmovert
 ```
 Donations:
 
