@@ -33,7 +33,7 @@ bot.use(async (ctx, next) => {
 });
 const helpMessage = 'Just send an address : ) \n\n\nAlso, you can send address with prefix in format <address>:<prefix>. For example `osmo1rxgykl9vgkjwaq5q99lu66vdt30c4py7dgzhl7:omniflix`, will convert osmosis address to OmniFlix (`omniflix1rxgykl9vgkjwaq5q99lu66vdt30c4py7cdq77j`) address. But be aware if you make mistake in `prefix` it will convert absolutely different address then you expect! ⚠️ Use this feature on your own risk ⚠️'
 const aboutMessage = 'This bot was created by [MELLIFERA](https://mellifera.network). Star on [GitHub](https://github.com/MELLIFERA-Labs/cosmovert)\nSupport us: cosmos1qcual5kgmw3gqc9q22hlp0aluc3t7rnsprewgy.\nNeed more? convert it 😉 '
-bot.command('start', async ctx => ctx.reply('Just send me an address :)\nThis bot can convert address from one network to another in Cosmos ecosystem'));
+bot.command('start', async ctx => ctx.reply(`Just send me an address :)\nThis bot can convert address from one network to another in Cosmos ecosystem ⚠️ This bot in test use on your own risk ⚠️`));
 bot.command('help', ctx => ctx.reply(helpMessage, {parse_mode: 'Markdown'}))
 bot.command('about', ctx => ctx.reply(aboutMessage, {parse_mode: 'Markdown'}))
 const supportedNetworkMessage = config.DEFAULT_NETWORKS.reduce((acc, cur) => {
