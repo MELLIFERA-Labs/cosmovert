@@ -1,6 +1,6 @@
 # cosmovert
 
-The bot will help you convert one wallet address to another network in cosmos ecosystem
+The bot will help you convert one cosmos wallet address to another
 https://t.me/cosmovertbot
 
 ### Run
