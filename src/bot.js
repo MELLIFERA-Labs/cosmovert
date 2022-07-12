@@ -31,17 +31,24 @@ bot.use(async (ctx, next) => {
 	}
 	return next()
 });
-const helpMessage = 'Just send an address : ) \n\n\nAlso, you can send address with prefix in format <address>:<prefix>. For example `osmo1rxgykl9vgkjwaq5q99lu66vdt30c4py7dgzhl7:omniflix`, will convert osmosis address to OmniFlix (`omniflix1rxgykl9vgkjwaq5q99lu66vdt30c4py7cdq77j`) address. But be aware if you make mistake in `prefix` it will convert absolutely different address then you expect!'
-const aboutMessage = 'This bot was created by [MELLIFERA](https://mellifera.network). Star on [GitHub](https://github.com/MELLIFERA-Labs/cosmovert)\nSupport us: cosmos1qcual5kgmw3gqc9q22hlp0aluc3t7rnsprewgy.\nNow you can convert this address to any network 😉 '
+const helpMessage = 'Just send an address : ) \n\n\nAlso, you can send address with prefix in format <address>:<prefix>. For example `osmo1rxgykl9vgkjwaq5q99lu66vdt30c4py7dgzhl7:omniflix`, will convert osmosis address to OmniFlix (`omniflix1rxgykl9vgkjwaq5q99lu66vdt30c4py7cdq77j`) address. But be aware if you make mistake in `prefix` it will convert absolutely different address then you expect! ⚠️ Use this feature on your own risk ⚠️'
+const aboutMessage = 'This bot was created by [MELLIFERA](https://mellifera.network). Star on [GitHub](https://github.com/MELLIFERA-Labs/cosmovert)\nSupport us: cosmos1qcual5kgmw3gqc9q22hlp0aluc3t7rnsprewgy.\nNeed more? convert it 😉 '
 bot.command('start', async ctx => ctx.reply('Just send me an address :)\nThis bot can convert address from one network to another in Cosmos ecosystem'));
 bot.command('help', ctx => ctx.reply(helpMessage, {parse_mode: 'Markdown'}))
 bot.command('about', ctx => ctx.reply(aboutMessage, {parse_mode: 'Markdown'}))
+const supportedNetworkMessage = config.DEFAULT_NETWORKS.reduce((acc, cur) => {
+	acc += `- ${cur.name}\n`
+	return acc;
+}, '')
 bot.on('message', async ctx => {
 	const rawStr = ctx.msg.text
 	const str = rawStr.trim().toLowerCase()
 	const [part1, part2] = str.split(':')
 	if(!isAddress(part1)) return ctx.reply('Please, enter an address from cosmos ecosystem')
 	if(!part2) {
+		if(!config.DEFAULT_NETWORKS.find(it => it.prefix === part1.split('1')[0])) {
+			return ctx.reply(`Highly recommend to use tested network:\n${supportedNetworkMessage}`)
+		}
 		const hexData = toHex(fromBech32(part1).data)
 		const addresses = config.DEFAULT_NETWORKS.map(network => ({
 			name: network.name,
@@ -58,7 +65,7 @@ bot.on('message', async ctx => {
 		const address = toBech32(part2, fromHex(hexData))
 
 		await ctx.reply(`Address -> ${address}`)
-		await ctx.reply('❗️❗️❗️❗️❗️ Make sure that prefix is correct, if you make mistake in prefix address will convert wrong ❗❗️❗️❗️')
+		await ctx.reply('❗️❗️❗️❗️❗️ Make sure that prefix is correct, if you make mistake in prefix address will convert wrong ❗❗️❗️❗️ ⚠️ Use this feature on your own risk ⚠️')
 	}
 
 
