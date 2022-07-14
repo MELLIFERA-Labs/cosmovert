@@ -65,7 +65,7 @@ bot.on('message', async ctx => {
 		const address = toBech32(part2, fromHex(hexData))
 
 		await ctx.reply(`Address -> ${address}`)
-		await ctx.reply('❗️❗️❗️❗️❗️ Make sure that prefix is correct, if you make mistake in prefix address will convert wrong ❗❗️❗️❗️ ⚠️ Use this feature on your own risk ⚠️')
+		await ctx.reply('❗️❗️❗️❗️❗️ Make sure that prefix is correct, if you make mistake in prefix address will convert wrong. Also, you have to make sure that the addresses have same derivation path/coinType ❗❗️❗️❗️ ⚠️ Use this feature on your own risk ⚠️')
 	}
 });
 
