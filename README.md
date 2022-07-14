@@ -1,4 +1,3 @@
-In test ⚠️!
 # cosmovert
 
 The bot will help you convert one cosmos wallet address to another. ***Support only for 118 type coins!***
