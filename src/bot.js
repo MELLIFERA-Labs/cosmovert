@@ -1,6 +1,6 @@
 const db = require('./db')
 const { Bot } = require('grammy')
-const config  = require('../config')
+const config  = require('./config-manager')
 const log = require('./logger').Logger('bot')
 const {toHex, fromBech32, fromHex, toBech32} = require('@cosmjs/encoding')
 

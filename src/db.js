@@ -1,4 +1,4 @@
-const config = require('../config')
+const config = require('./config-manager')
 const { MongoClient } = require('mongodb')
 const log = require('./logger').Logger('database')
 
