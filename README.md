@@ -12,3 +12,8 @@ Donations:
 `cosmos -> cosmos1rxgykl9vgkjwaq5q99lu66vdt30c4py79n38fv`
 
 Need more? convert it https://t.me/cosmovertbot : ) 
+
+Deployed on the ***[Akash network](https://akash.network/)***
+
+<img src="https://avatars.githubusercontent.com/u/4899835?s=200&v=4" width="20%">
+
